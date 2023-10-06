@@ -98,6 +98,7 @@
 .restaurants {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   justify-content: space-between;
 }
@@ -148,7 +149,7 @@
   }
 
   .phone {
-    font-weight: 600;
+    font-weight: 600; 
     /* width: 100%; */
   }
 }

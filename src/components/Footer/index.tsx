@@ -46,6 +46,9 @@ const Footer = () => {
               <Link href='/politica-cookies' prefetch={false}>
                 <p>Política de cookies</p>
               </Link>
+              <Link href='/politica-privacidad' prefetch={false}>
+                <p>Política de privacidad</p>
+              </Link>
               <Link href='/derecho-desistimiento' prefetch={false}>
                 <p>Derecho de desistimiento</p>
               </Link>
