@@ -1,0 +1,61 @@
+.separator {
+  background-attachment: fixed;
+  background-image: url('../../../public/fondo.jpg');  
+  background-position: center center;
+  background-size: contain;
+  height: 300px;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+}
+
+.background {
+  align-items: center;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.8) 5%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+}
+
+.info {
+  color: var(--color-font-light);
+  text-align: center;
+}
+
+.one {
+  display: block;
+  font-size: 2rem;
+}
+
+.two {
+  color: var(--color-border-grey-light);
+  display: block;
+  font-size: 1.2rem;
+}
+
+.tree {
+  color: var(--color-primary);
+  font-size: 4rem;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/*  Media queries */
+@media (max-width: 640px) {
+  .one {
+    font-size: 1.2rem;
+  }
+
+  .two {
+    font-size: 0.8rem;
+  }
+
+  .tree {
+    font-size: 2.5rem;
+  }
+}

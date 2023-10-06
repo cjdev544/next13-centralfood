@@ -1,0 +1,58 @@
+.restaurants {
+  max-width: var(--intern-container);
+  margin: 0 auto;
+  width: 98%;
+}
+
+.titleSection {
+  color: var(--color-background-grey-dark);
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.restaurant {
+  background-color: rgb(247, 247, 247);
+  border: 1px solid var(--color-background-grey);
+  border-radius: 10px;
+  box-shadow: 0px 6px 11px -6px #000;
+  height: 100%;
+  padding: 0 1rem 1rem 1rem;
+}
+
+.restaurant p {
+  color: var(--color-border-grey);
+}
+
+.title {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.title h2 {
+  color: var(--color-background-grey-dark);
+  font-style: italic;
+}
+
+/*  Media queries */
+@media (max-width: 640px) {
+  .grid {
+    display: block;
+  }
+
+  .title {
+    display: block;
+    text-align: center;
+  }
+
+  .restaurant {
+    margin-bottom: 1rem;
+  }
+}
