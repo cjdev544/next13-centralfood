@@ -12,8 +12,11 @@ import Burrito from '@/public/logo-burrito.png'
 import Bebidas from '@/public/postres-bebidas.png'
 import { AnimateIcon } from './components/AnimateIcon'
 import style from './Hero.module.css'
+import { getUserOrders } from '@/services/orders'
 
-export default function Hero() {
+export default async function Hero() {
+  const a = await getUserOrders('7esciPwRBvM6S7wmDSpkZMJmmDh2')
+  console.log(a)
   return (
     <div className={`container ${style.hero}`}>
       {/* LeftSide */}
