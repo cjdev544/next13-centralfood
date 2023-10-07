@@ -1,0 +1,68 @@
+.restaurant {
+  margin: 0 auto;
+  max-width: var(--intern-container);
+  width: 98%;
+}
+
+.restaurant h1 {
+  color: var(--color-background-grey-dark);
+  font-style: italic;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.close {
+  display: block;
+  color: #fff;
+  background-color: red;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.info {
+  align-items: center;
+  display: flex;
+  gap: 2rem;
+}
+
+.info span {
+  font-weight: bold;
+}
+
+.logo {
+  text-align: center;
+  width: 100%;
+}
+
+.restaurantInfo {
+  margin: 0 auto;
+  margin-top: 3rem;
+  max-width: var(--intern-container);
+  width: 98%;
+}
+
+.restaurantInfo h2 {
+  color: var(--color-background-grey-dark);
+  font-style: italic;
+}
+
+/* Media queries */
+@media (max-width: 640px) {
+  .info {
+    display: block;
+  }
+
+  .categories {
+    display: block;
+    text-align: center;
+  }
+
+  .categories p {
+    padding: 0.5rem;
+  }
+}

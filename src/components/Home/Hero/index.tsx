@@ -12,13 +12,13 @@ import Burrito from '@/public/logo-burrito.png'
 import Bebidas from '@/public/postres-bebidas.png'
 import { AnimateIcon } from './components/AnimateIcon'
 import style from './Hero.module.css'
-import { getUserOrders } from '@/services/orders'
+import { getRestaurants } from '@/services/products'
 
 export default async function Hero() {
-  const a = await getUserOrders('7esciPwRBvM6S7wmDSpkZMJmmDh2')
-  console.log(a)
+  const a = await getRestaurants()
   return (
     <div className={`container ${style.hero}`}>
+      {JSON.stringify(a)}
       {/* LeftSide */}
       <div className={style.leftSide}>
         <div className={style.moto}>
@@ -58,8 +58,8 @@ export default async function Hero() {
               <Image
                 src={SushiGuay}
                 alt='logo SushiGuay'
-                width={100}
-                height={100}
+                width={70}
+                height={70}
                 className={style.restaurant}
                 priority={true}
               />
@@ -68,8 +68,8 @@ export default async function Hero() {
               <Image
                 src={GuayWok}
                 alt='logo GuayWok'
-                width={100}
-                height={100}
+                width={70}
+                height={70}
                 className={style.restaurant}
                 priority={true}
               />
@@ -78,8 +78,8 @@ export default async function Hero() {
               <Image
                 src={Sabor}
                 alt='logo Con sabor a casita'
-                width={100}
-                height={100}
+                width={70}
+                height={70}
                 className={style.restaurant}
                 priority={true}
               />
@@ -88,8 +88,8 @@ export default async function Hero() {
               <Image
                 src={HamVzl}
                 alt='logo hamburguesería Venezuela'
-                width={100}
-                height={100}
+                width={70}
+                height={70}
                 className={style.restaurant}
                 priority={true}
               />
@@ -98,8 +98,8 @@ export default async function Hero() {
               <Image
                 src={Pokes}
                 alt='logo Pokes Guay'
-                width={100}
-                height={100}
+                width={70}
+                height={70}
                 className={style.restaurant}
                 priority={true}
               />
@@ -108,8 +108,8 @@ export default async function Hero() {
               <Image
                 src={Burrito}
                 alt='logo Don Burrito'
-                width={80}
-                height={80}
+                width={70}
+                height={70}
                 className={style.restaurant}
                 priority={true}
               />
@@ -118,8 +118,8 @@ export default async function Hero() {
               <Image
                 src={Bebidas}
                 alt='Postres y bebidas'
-                width={80}
-                height={80}
+                width={70}
+                height={70}
                 className={style.restaurant}
                 priority={true}
               />

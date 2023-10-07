@@ -1,0 +1,55 @@
+.homePlates {
+  background-attachment: fixed;
+  background-image: url('../../../public/fondo.jpg');
+  background-position: center center;
+  background-size: contain;
+}
+
+.opacity {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.7) 5%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  background-position: center center;
+  background-size: cover;
+}
+
+.background {
+  margin-top: 3rem;
+  margin: 0 auto;
+  margin: 0 auto;
+  max-width: var(--intern-container);
+  max-width: var(--intern-container);
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  width: 98%;
+}
+
+.title {
+  color: var(--color-font-light);
+  font-size: 2rem;
+  text-align: center;
+}
+
+.discount {
+  color: var(--color-background-grey-light);
+}
+
+.discount span {
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.products {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .products {
+    display: block;
+  }
+}
