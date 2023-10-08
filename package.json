@@ -15,6 +15,7 @@
     "firebase-admin": "11.11.0",
     "formik": "2.4.5",
     "framer-motion": "10.16.4",
+    "mathjs": "11.11.1",
     "next": "13.5.4",
     "next-pwa": "5.6.0",
     "react": "^18",

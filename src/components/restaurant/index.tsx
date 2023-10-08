@@ -3,14 +3,16 @@
 import Categories from './Categories'
 import Plates from './Plates'
 import { type Product, type Restaurant } from '@/types.d'
-import { usePlatesCategory } from './usePlatesCategory'
+import { usePlatesCategory } from './hooks/usePlatesCategory'
 
 interface Props {
+  products: Product[]
   restaurant: Restaurant
   productsRestaurant: Product[]
 }
 
 export default function RestaurantCategories({
+  products,
   restaurant,
   productsRestaurant,
 }: Props) {
@@ -27,7 +29,11 @@ export default function RestaurantCategories({
         changeCategory={changeCategory}
       />
       <div id='box' />
-      <Plates category={category} productsCategory={productsCategory} />
+      <Plates
+        category={category}
+        products={products}
+        productsCategory={productsCategory}
+      />
     </>
   )
 }

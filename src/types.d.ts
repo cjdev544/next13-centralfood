@@ -96,6 +96,7 @@ export interface Product {
   disponible: boolean
   precio: string
   nombre: string
+  number?: number
   restaurante: string
   path: string
   categoria: string

@@ -1,27 +1,31 @@
-'use client'
-
 import Image from 'next/image'
-import style from './Product.module.css'
+
 import { type Product } from '@/types.d'
+import styles from './Products.module.css'
 
 interface Props {
   product: Product
+  changeProduct: (product: Product) => void
+  openOrCloseModal: (value: boolean) => void
 }
 
-export default function Product({ product }: Props) {
+export default function Product({
+  product,
+  changeProduct,
+  openOrCloseModal,
+}: Props) {
   const cutDescription = product?.descripcion?.substring(0, 80)
 
   const handleClick = () => {
-    // setProduct(product)
-    // setOpenModal(true)
-    console.log('click')
+    changeProduct(product)
+    openOrCloseModal(true)
   }
 
   return (
-    <article className={style.product} onClick={handleClick}>
-      <div className={style.image}>
+    <article className={styles.product} onClick={handleClick}>
+      <div className={styles.image}>
         <Image
-          className={style.imageBox}
+          className={styles.imageBox}
           src={product.image}
           alt={product.nombre}
           width={100}
@@ -29,8 +33,8 @@ export default function Product({ product }: Props) {
           quality={30}
         />
       </div>
-      <div className={style.info}>
-        <div className={style.headerInfo}>
+      <div className={styles.info}>
+        <div className={styles.headerInfo}>
           <h3>{product.nombre}</h3>
           <p>{product.precio}€</p>
         </div>

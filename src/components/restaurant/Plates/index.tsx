@@ -1,42 +1,30 @@
-import Product from '@/components/Product'
+import Products from '@/components/Products'
 import Transition from '../Transition'
+import { getProducts } from '@/services/products'
 import { type Product as ProductType } from '@/types.d'
 import style from './Plates.module.css'
 
 interface Props {
   category: string | null
+  products: ProductType[]
   productsCategory: ProductType[]
 }
 
-export default function Plates({ category, productsCategory }: Props) {
-  // const [openModal, setOpenModal] = useState(false)
+export default function Plates({
+  category,
+  products,
+  productsCategory,
+}: Props) {
   return (
     <div className={style.homePlates}>
       <div className={style.opacity}>
         <div className={style.background}>
           <Transition category={category}>
             <h2 className={style.title}>{category}</h2>
-            <div className={style.products}>
-              {productsCategory.map((product) => (
-                <Product
-                  key={product.id}
-                  product={product}
-                  // setOpenModal={setOpenModal}
-                  // setProduct={setProduct}
-                />
-              ))}
-            </div>
+            <Products products={products} productsToMap={productsCategory} />
           </Transition>
         </div>
       </div>
-      {/* {openModal && (
-        <ProductModal
-          setOpenModal={setOpenModal}
-          products={products}
-          product={product}
-          restaurants={restaurants}
-        />
-      )} */}
     </div>
   )
 }
