@@ -49,6 +49,7 @@ export default async function RestaurantPage({ params }: { params: Params }) {
       <RestaurantCategories
         products={products}
         restaurant={restaurant}
+        restaurants={restaurants}
         productsRestaurant={productsRestaurant}
       />
       <div className={style.restaurantInfo}>

@@ -8,12 +8,14 @@ import { usePlatesCategory } from './hooks/usePlatesCategory'
 interface Props {
   products: Product[]
   restaurant: Restaurant
+  restaurants: Restaurant[]
   productsRestaurant: Product[]
 }
 
 export default function RestaurantCategories({
   products,
   restaurant,
+  restaurants,
   productsRestaurant,
 }: Props) {
   const { category, productsCategory, changeCategory } = usePlatesCategory({
@@ -33,6 +35,7 @@ export default function RestaurantCategories({
         category={category}
         products={products}
         productsCategory={productsCategory}
+        restaurants={restaurants}
       />
     </>
   )

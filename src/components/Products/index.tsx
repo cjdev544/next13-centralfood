@@ -4,15 +4,20 @@ import { useState } from 'react'
 
 import Product from './Product'
 import ModalProduct from '@/components/modals/ModalProduct'
-import { type Product as ProductType } from '@/types.d'
+import { type Restaurant, type Product as ProductType } from '@/types.d'
 import styles from './Products.module.css'
 
 interface Props {
   products: ProductType[]
   productsToMap: ProductType[]
+  restaurants: Restaurant[]
 }
 
-export default function Products({ products, productsToMap }: Props) {
+export default function Products({
+  products,
+  productsToMap,
+  restaurants,
+}: Props) {
   const [product, setProduct] = useState<ProductType | null>(null)
   const [openModal, setOpenModal] = useState(false)
 
@@ -33,6 +38,7 @@ export default function Products({ products, productsToMap }: Props) {
         <ModalProduct
           product={product}
           products={products}
+          restaurants={restaurants}
           openOrCloseModal={openOrCloseModal}
         />
       )}

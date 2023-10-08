@@ -1,27 +1,66 @@
 'use cliente'
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { FaMinus, FaPlus, FaRegWindowClose } from 'react-icons/fa'
+import { toast } from 'react-toastify'
 
-import { type Product } from '@/types.d'
-import styles from './ProductModal.module.css'
 import ProductsComplements from './components/ProductsComplements'
+import { type Restaurant, type Product } from '@/types.d'
+import styles from './ProductModal.module.css'
 
 interface Props {
   product: Product | null
   products: Product[]
+  restaurants: Restaurant[]
   openOrCloseModal: (value: boolean) => void
 }
 
 export default function ModalProduct({
   product,
   products,
+  restaurants,
   openOrCloseModal,
 }: Props) {
   const boxRef: React.RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null)
 
+  const [restaurant, setRestaurant] = useState<Restaurant | null>(null)
   const [complements, setComplements] = useState<Product[]>([])
+
+  useEffect(() => {
+    const restaurantProduct = restaurants.find(
+      (restaurant) => restaurant.page === product?.restaurante
+    )
+    if (restaurantProduct) setRestaurant(restaurantProduct)
+  }, [product, restaurants])
+
+  const addCar = () => {
+    if (!restaurant?.isOpen) {
+      toast.warning(
+        `${restaurant?.name} se encuentra cerrado en estos momentos`
+      )
+      return
+    }
+    console.log('Añadiendo al carrito')
+    // if (isPepper) {
+    //   addProductCart({ ...pepperPlate, number: counterProduct })
+    //   complements.forEach((complement) => {
+    //     addProductCart({ ...complement, number: 1 })
+    //   })
+    // } else if (isJalapeño) {
+    //   addProductCart({ ...jalapeñoPlate, number: counterProduct })
+    //   complements.forEach((complement) => {
+    //     addProductCart({ ...complement, number: 1 })
+    //   })
+    // } else {
+    //   addProductCart({ ...product, number: counterProduct })
+    //   complements.forEach((complement) => {
+    //     addProductCart({ ...complement, number: 1 })
+    //   })
+    // }
+    // setOpenModal(false)
+    // router.push('/carrito')
+  }
 
   if (!product) return null
 
@@ -62,7 +101,9 @@ export default function ModalProduct({
             </div>
           </div>
           <div className={styles.button}>
-            <button className='button'>Añadir por TOTAL€</button>
+            <button className='button' onClick={addCar}>
+              Añadir por TOTAL€
+            </button>
           </div>
           ProductsComplements
         </div>
