@@ -1,7 +1,6 @@
 import Image from 'next/image'
 
-import Categories from '@/components/restaurant/Categories'
-import Plates from '@/components/restaurant/Plates'
+import RestaurantCategories from '@/components/restaurant'
 import { getProducts, getRestaurants } from '@/services/products'
 import { Restaurants } from '@/types.d'
 import style from './RestaurantPage.module.css'
@@ -46,13 +45,11 @@ export default async function RestaurantPage({ params }: { params: Params }) {
             {restaurant.name} se encuentra cerrado en estos momentos
           </span>
         )}
-        <Categories
-          restaurant={restaurant}
-          productsRestaurant={productsRestaurant}
-        />
       </div>
-      <div id='box' />
-      <Plates />
+      <RestaurantCategories
+        restaurant={restaurant}
+        productsRestaurant={productsRestaurant}
+      />
       <div className={style.restaurantInfo}>
         <h2>{restaurant.subTitle}</h2>
         {restaurant.secondContent?.map((content, idx) => (

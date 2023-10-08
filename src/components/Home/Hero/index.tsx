@@ -12,13 +12,10 @@ import Burrito from '@/public/logo-burrito.png'
 import Bebidas from '@/public/postres-bebidas.png'
 import { AnimateIcon } from './components/AnimateIcon'
 import style from './Hero.module.css'
-import { getRestaurants } from '@/services/products'
 
-export default async function Hero() {
-  const a = await getRestaurants()
+export default async function Hero() {  
   return (
-    <div className={`container ${style.hero}`}>
-      {JSON.stringify(a)}
+    <div className={`container ${style.hero}`}>      
       {/* LeftSide */}
       <div className={style.leftSide}>
         <div className={style.moto}>

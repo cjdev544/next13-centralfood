@@ -2,8 +2,8 @@ import { Product, Restaurant } from '@/types'
 import { useEffect, useState } from 'react'
 
 interface Params {
-  restaurant?: Restaurant
-  productsRestaurant?: Product[]
+  restaurant: Restaurant
+  productsRestaurant: Product[]
 }
 
 export function usePlatesCategory({ restaurant, productsRestaurant }: Params) {
@@ -15,7 +15,7 @@ export function usePlatesCategory({ restaurant, productsRestaurant }: Params) {
       const products = productsRestaurant?.filter(
         (product) => product.categoria === restaurant?.categories[0]
       )
-      if (restaurant?.categories[0]) setCategory(restaurant?.categories[0])
+      if (restaurant?.categories[0]) setCategory(restaurant.categories[0])
       if (products) setProductCategory(products)
     } else {
       const products = productsRestaurant?.filter(
@@ -26,9 +26,11 @@ export function usePlatesCategory({ restaurant, productsRestaurant }: Params) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [category])
 
+  const changeCategory = (category: string) => setCategory(category)
+
   return {
     category,
     productsCategory,
-    setCategory,
+    changeCategory,
   }
 }

@@ -1,22 +1,19 @@
-'use client'
-
 import { Link } from 'react-scroll'
 
-import { usePlatesCategory } from '../usePlatesCategory'
-import { type Product, type Restaurant } from '@/types.d'
+import { type Restaurant } from '@/types.d'
 import styles from './Categories.module.css'
 
 interface Props {
   restaurant: Restaurant
-  productsRestaurant: Product[]
+  category: string | null
+  changeCategory: (category: string) => void
 }
 
-export default function Categories({ restaurant, productsRestaurant }: Props) {
-  const { category, setCategory } = usePlatesCategory({
-    productsRestaurant,
-    restaurant,
-  })
-
+export default function Categories({
+  category,
+  restaurant,
+  changeCategory,
+}: Props) {
   return (
     <div className={styles.categories}>
       {restaurant?.categories.map((itemCategory, idx) => (
@@ -30,7 +27,7 @@ export default function Categories({ restaurant, productsRestaurant }: Props) {
         >
           <p
             className={category === itemCategory ? styles.category : ''}
-            onClick={() => setCategory(itemCategory)}
+            onClick={() => changeCategory(itemCategory)}
           >
             {itemCategory}
           </p>

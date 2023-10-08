@@ -1,17 +1,15 @@
-'use client'
-
 import Product from '@/components/Product'
-
-// const ProductModal = dynamic(import('../modals/ProductModal'))
-
 import Transition from '../Transition'
+import { type Product as ProductType } from '@/types.d'
 import style from './Plates.module.css'
-import { usePlatesCategory } from '../usePlatesCategory'
 
-export default function Plates() {
+interface Props {
+  category: string | null
+  productsCategory: ProductType[]
+}
+
+export default function Plates({ category, productsCategory }: Props) {
   // const [openModal, setOpenModal] = useState(false)
-  const { category, productsCategory } = usePlatesCategory({})
-  console.log({ productsCategory })
   return (
     <div className={style.homePlates}>
       <div className={style.opacity}>
