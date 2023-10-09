@@ -5,19 +5,19 @@ import styles from './Products.module.css'
 
 interface Props {
   product: Product
-  changeProduct: (product: Product) => void
+  selectProduct: (product: Product) => void
   openOrCloseModal: (value: boolean) => void
 }
 
 export default function Product({
   product,
-  changeProduct,
+  selectProduct,
   openOrCloseModal,
 }: Props) {
   const cutDescription = product?.descripcion?.substring(0, 80)
 
   const handleClick = () => {
-    changeProduct(product)
+    selectProduct(product)
     openOrCloseModal(true)
   }
 

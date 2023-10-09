@@ -1,10 +1,15 @@
 import Products from '@/components/Products'
-import { getPopularProducts, getProducts } from '@/services/products'
+import {
+  getPopularProducts,
+  getProducts,
+  getRestaurants,
+} from '@/services/products'
 import style from './HomePlates.module.css'
 
 export default async function HomePlates() {
   const popularData = await getPopularProducts()
   const products = await getProducts()
+  const restaurants = await getRestaurants()
 
   return (
     <section className={style.homePlates}>
@@ -19,6 +24,7 @@ export default async function HomePlates() {
               <Products
                 products={products}
                 productsToMap={popularData.productsData}
+                restaurants={restaurants}
               />
             </>
           )}

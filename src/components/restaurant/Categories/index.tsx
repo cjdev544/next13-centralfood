@@ -27,7 +27,9 @@ export default function Categories({
         >
           <p
             className={category === itemCategory ? styles.category : ''}
-            onClick={() => changeCategory(itemCategory)}
+            onClick={() => {
+              changeCategory(itemCategory)
+            }}
           >
             {itemCategory}
           </p>

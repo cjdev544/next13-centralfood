@@ -1,10 +1,15 @@
 import { FaCheck } from 'react-icons/fa'
 import style from './exclusivePlate.module.css'
 
+interface Props {
+  selectJalapeño: boolean
+  setSelectJalapeño: React.Dispatch<React.SetStateAction<boolean>>
+}
+
 export default function IsPlateWhitJalapeños({
   selectJalapeño,
   setSelectJalapeño,
-}) {
+}: Props) {
   return (
     <div className={style.exclusive}>
       <div

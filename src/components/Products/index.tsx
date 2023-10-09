@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 import Product from './Product'
 import ModalProduct from '@/components/modals/ModalProduct'
+import { useProducts } from '@/hooks/useProducts'
 import { type Restaurant, type Product as ProductType } from '@/types.d'
 import styles from './Products.module.css'
 
@@ -18,11 +19,14 @@ export default function Products({
   productsToMap,
   restaurants,
 }: Props) {
-  const [product, setProduct] = useState<ProductType | null>(null)
-  const [openModal, setOpenModal] = useState(false)
-
-  const changeProduct = (product: ProductType) => setProduct(product)
   const openOrCloseModal = (value: boolean) => setOpenModal(value)
+  const { loadProducts, selectProduct } = useProducts({
+    restaurants,
+    openOrCloseModal,
+  })
+  loadProducts(products)
+
+  const [openModal, setOpenModal] = useState(false)
 
   return (
     <div className={styles.products}>
@@ -30,14 +34,12 @@ export default function Products({
         <Product
           key={product.id}
           product={product}
-          changeProduct={changeProduct}
+          selectProduct={selectProduct}
           openOrCloseModal={openOrCloseModal}
         />
       ))}
       {openModal && (
         <ModalProduct
-          product={product}
-          products={products}
           restaurants={restaurants}
           openOrCloseModal={openOrCloseModal}
         />

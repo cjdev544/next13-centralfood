@@ -1,7 +1,15 @@
 import { FaCheck } from 'react-icons/fa'
 import style from './exclusivePlate.module.css'
 
-export default function IsPlatePepper({ selectPepper, setSelectPepper }) {
+interface Props {
+  selectPepper: boolean
+  setSelectPepper: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export default function IsPlatePepper({
+  selectPepper,
+  setSelectPepper,
+}: Props) {
   return (
     <div className={style.exclusive}>
       <div

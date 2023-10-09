@@ -9,7 +9,6 @@ interface Props {
   productsCategory: ProductType[]
   restaurants: Restaurant[]
 }
-
 export default function Plates({
   category,
   products,
