@@ -13,8 +13,9 @@ import styles from '../Hero.module.css'
 export function AnimateIcon() {
   const [addClassMove, setAddClassMove] = useState<boolean | null>(null)
 
-  const ref = useRef<any>(null)
-  const { isIntersecting } = useElementInView(ref)
+  const boxRef: React.RefObject<HTMLHeadingElement> =
+    useRef<HTMLHeadingElement>(null)
+  const { isIntersecting } = useElementInView(boxRef)
 
   useEffect(() => {
     setAddClassMove(isIntersecting)
@@ -23,7 +24,7 @@ export function AnimateIcon() {
 
   return (
     <>
-      <h2 ref={ref}>Comida a domicilio en Málaga</h2>
+      <h2 ref={boxRef}>Comida a domicilio en Málaga</h2>
       <div className={addClassMove ? styles.motoIcon : ''}>
         <Image src={Moto} alt='delivery image' width={45} height={45} />
         {/* <Image src={Moto} alt='delivery image' width={110} height={110} /> */}

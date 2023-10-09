@@ -1,9 +1,12 @@
 'use client'
 
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
+import dynamic from 'next/dynamic'
 
+const ModalProduct = dynamic(() => import('@/components/modals/ModalProduct'), {
+  suspense: true,
+})
 import Product from './Product'
-import ModalProduct from '@/components/modals/ModalProduct'
 import { useProducts } from '@/hooks/useProducts'
 import { type Restaurant, type Product as ProductType } from '@/types.d'
 import styles from './Products.module.css'
@@ -39,10 +42,12 @@ export default function Products({
         />
       ))}
       {openModal && (
-        <ModalProduct
-          restaurants={restaurants}
-          openOrCloseModal={openOrCloseModal}
-        />
+        <Suspense fallback={''}>
+          <ModalProduct
+            restaurants={restaurants}
+            openOrCloseModal={openOrCloseModal}
+          />
+        </Suspense>
       )}
     </div>
   )

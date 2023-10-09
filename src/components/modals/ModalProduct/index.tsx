@@ -5,11 +5,11 @@ import Image from 'next/image'
 import { FaMinus, FaPlus, FaRegWindowClose } from 'react-icons/fa'
 
 import ProductsComplements from './components/ProductsComplements'
+import IsPlateWhitJalapeños from './components/IsPlateWithJalapeño/IsPlateWithJalapeño'
+import IsPlatePepper from './components/IsPlatePepper'
 import { useProducts } from '@/hooks/useProducts'
 import { type Restaurant } from '@/types.d'
 import styles from './ProductModal.module.css'
-import IsPlatePepper from './components/IsPlatePepper'
-import IsPlateWhitJalapeños from './components/IsPlateWithJalapeño/IsPlateWithJalapeño'
 
 interface Props {
   restaurants: Restaurant[]

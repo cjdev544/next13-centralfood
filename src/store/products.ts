@@ -14,11 +14,11 @@ export const useProductsStore = create<State>()(
     product: null,
     products: [],
 
-    loadProducts: async (products: Product[]) => {
+    loadProducts: async (products) => {
       set((state) => ({ ...state, products }))
     },
 
-    selectProduct: (product: Product) => {
+    selectProduct: (product) => {
       set((state) => ({ ...state, product }))
     },
   }))

@@ -77,7 +77,13 @@ export interface Pedido {
 }
 
 /******************** */
-
+export interface AuthUser {
+  uid: string
+  displayName: string | null
+  email: string
+  photoURL?: string
+  provider: string
+}
 export interface DataHome {
   id: ProductsSection
   description: string

@@ -17,7 +17,7 @@ export const useLocalStorageState = create<State>()(
       (set, get) => ({
         cartProducts: [],
 
-        addProduct: (product: Product) => {
+        addProduct: (product) => {
           set((state) => ({ cartProducts: [...state.cartProducts, product] }))
         },
 
@@ -30,7 +30,7 @@ export const useLocalStorageState = create<State>()(
           set(() => ({ cartProducts: newStorage }))
         },
 
-        deleteProduct: (product: Product) => {
+        deleteProduct: (product) => {
           const cartProducts = get().cartProducts
           const changeProducts = cartProducts.filter(
             (prod) => prod.id !== product.id
